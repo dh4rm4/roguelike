@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic; 		//Allows us to use Lists.
 using Random = UnityEngine.Random; 		//Tells Random to use the Unity Engine random number generator.
 
-public class boardManager : MonoBehaviour
+public class BoardManager : MonoBehaviour
 {
     [Serializable]
     public class Count
@@ -55,7 +55,7 @@ public class boardManager : MonoBehaviour
             for (int y = -1; y < rows + 1; y++)
             {
                 GameObject toInstantiate = floorTiles[Random.Range(0, floorTiles.Length)];
-                if (x == 1 || x == columns || y == -1 || y == rows)
+                if (x == -1 || x == columns || y == -1 || y == rows)
                     toInstantiate = outterWallTiles[Random.Range(0, outterWallTiles.Length)];
 
                 GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
